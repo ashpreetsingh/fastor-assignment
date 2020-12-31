@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
+
+// import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter,Route,Switch} from 'react-router-dom'
+import Register from './routes/register';
+import OTP from './routes/otpinput';
+import Home from './routes/home';
+import Restro from './components/restroView'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Fragment>
+  
+      <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Register} />
+        <Route exact path="/login" component={OTP} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/lists/:id" component={Restro} />
+      </Switch>
+      </BrowserRouter>
+     
+    </Fragment>
   );
 }
 
